@@ -6,22 +6,21 @@ import { Card } from './Card';
 import { Article } from '../helpers/types';
 
 const defaultArticle: Article = {
-  author: 'author',
   content: 'content',
+  description: 'description',
   publishedAt: 'publish date',
   source: {
-    id: 'id',
+    url: 'id',
     name: 'name',
   },
   title: 'title',
-  url: 'url',
-  urlToImage: 'urlToImage',
+  image: 'urlToImage',
 };
 
 describe('Card', () => {
   it('Renders card', () => {
     render(<Card article={defaultArticle} />);
-    expect(screen.getByText(/author/i)).toHaveTextContent('author');
+    expect(screen.getByText(/content/i)).toHaveTextContent('content');
     expect(screen.getByText(/title/i)).toHaveTextContent('title');
     expect(screen.getByText(/content/i)).toHaveTextContent('content');
     expect(screen.getByAltText('image')).toHaveAttribute('src');

@@ -1,12 +1,11 @@
 export type Article = {
-  author: string;
+  description: string;
   content: string;
   publishedAt: string;
   source: {
-    id: string;
+    url: string;
     name: string;
   };
   title: string;
-  url: string;
-  urlToImage: string;
+  image: string;
 };

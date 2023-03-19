@@ -20,6 +20,7 @@ export class Main extends Component<unknown, { articles: Article[] }> {
   render() {
     return (
       <>
+        <h1 className="h1">Wall Street Journal News</h1>
         <Search />
         <div className="main">
           {this.state.articles.map((article: Article, index) => (

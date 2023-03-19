@@ -1,9 +1,10 @@
 import React from 'react';
 
-export function AboutUs(): JSX.Element {
+export function About(): JSX.Element {
   return (
     <div>
-      <div>About Us</div>
+      <h1 className="h1">About Us</h1>
+      <div>asd</div>
     </div>
   );
 }

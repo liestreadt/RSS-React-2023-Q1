@@ -11,3 +11,7 @@ body {
   color: rgb(0, 0, 198) !important;
   text-decoration: underline;
 }
+
+.h1 {
+  text-align: center;
+}

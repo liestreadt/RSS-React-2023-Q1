@@ -2,17 +2,17 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { Layout } from './components/Layout';
-import { AboutUs } from './pages/About';
+import { About } from './pages/About';
 import { Main } from './pages/Main';
-import { NotFoundPage } from './pages/NotFoundPage';
+import { NotFound } from './pages/NotFound';
 
-function App() {
+export function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Main />} />
-        <Route path="about" element={<AboutUs />} />
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );

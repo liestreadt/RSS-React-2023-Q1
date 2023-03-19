@@ -23,8 +23,8 @@ export class Search extends Component<unknown, unknown> {
   render() {
     return (
       <div className="search">
-        <button>Search: </button>
-        <input ref={this.inputRef} id="searchInput" />
+        <button className="search__button">Search: </button>
+        <input ref={this.inputRef} id="searchInput" className="search__input" placeholder="🔍︎" />
       </div>
     );
   }

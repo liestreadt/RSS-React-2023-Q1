@@ -11,6 +11,9 @@ export function Header(): JSX.Element {
       <NavLink className="header__link" to="/about">
         About Us
       </NavLink>
+      <NavLink className="header__link" to="/forms">
+        Forms
+      </NavLink>
     </header>
   );
 }

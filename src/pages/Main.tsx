@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/Main.css';
 
 import { getData } from '../api/getData';
@@ -6,28 +6,24 @@ import { Article } from '../helpers/types';
 import { Search } from '../components/Search';
 import { Card } from '../components/Card';
 
-export class Main extends Component<unknown, { articles: Article[] }> {
-  state = {
-    articles: [],
-  };
+export function Main(): JSX.Element {
+  const [articles, setArticles] = useState<Article[] | null>(null);
 
-  componentDidMount(): void {
+  useEffect(() => {
     getData().then((data) => {
-      this.setState({ articles: data });
+      setArticles(data);
     });
-  }
+  }, []);
 
-  render() {
-    return (
-      <>
-        <h1 className="h1">Wall Street Journal News</h1>
-        <Search />
-        <div className="main">
-          {this.state.articles.map((article: Article, index) => (
-            <Card key={index} article={article} />
-          ))}
-        </div>
-      </>
-    );
-  }
+  return (
+    <>
+      <h1 className="h1">Wall Street Journal News</h1>
+      <Search />
+      <div className="main">
+        {articles?.map((article: Article, index) => (
+          <Card key={index} article={article} />
+        ))}
+      </div>
+    </>
+  );
 }

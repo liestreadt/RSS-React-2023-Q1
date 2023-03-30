@@ -1,31 +1,23 @@
-import React, { Component } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import '../styles/Search.css';
 
-export class Search extends Component<unknown, unknown> {
-  private inputRef: React.RefObject<HTMLInputElement>;
-  constructor(props: unknown) {
-    super(props);
-    this.inputRef = React.createRef();
-  }
+export function Search(): JSX.Element {
+  const inputRef = useRef<HTMLInputElement>(null);
 
-  componentDidMount(): void {
-    const input = this.inputRef.current;
+  useEffect(() => {
+    const input = inputRef.current;
     const inputValueInLocalStorage = localStorage.getItem('inputValue');
     if (input && inputValueInLocalStorage) input.value = inputValueInLocalStorage;
-  }
+    return () => {
+      if (input) localStorage.setItem('inputValue', input.value);
+    };
+  }, []);
 
-  componentWillUnmount(): void {
-    const input = this.inputRef.current;
-    if (input) localStorage.setItem('inputValue', input.value);
-  }
-
-  render() {
-    return (
-      <div className="search">
-        <button className="search__button">Search: </button>
-        <input ref={this.inputRef} id="searchInput" className="search__input" placeholder="🔍︎" />
-      </div>
-    );
-  }
+  return (
+    <div className="search">
+      <button className="search__button">Search: </button>
+      <input ref={inputRef} id="searchInput" className="search__input" placeholder="🔍︎" />
+    </div>
+  );
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/Card.css';
 
-import { getDateFromResponse } from '../helpers/helperFunction';
+import { getDateFromResponse } from '../helpers/helperFunctions';
 import { Article } from '../helpers/types';
 
 export class Card extends Component<{ article: Article }, unknown> {

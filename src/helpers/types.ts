@@ -9,3 +9,15 @@ export type Article = {
   title: string;
   image: string;
 };
+
+export type FormInput = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  birthday: string;
+  select: string;
+  checkbox: string[];
+  personalData: string;
+  radio: string;
+  image: string;
+};

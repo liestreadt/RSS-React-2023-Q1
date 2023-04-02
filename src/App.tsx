@@ -7,7 +7,7 @@ import { About } from './pages/About';
 import { Forms } from './pages/Forms';
 import { NotFound } from './pages/NotFound';
 
-export function App() {
+export function App(): JSX.Element {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

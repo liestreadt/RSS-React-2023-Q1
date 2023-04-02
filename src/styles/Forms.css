@@ -6,10 +6,15 @@
   align-items: center;
 }
 
-.form__elem-input {
+.form {
+  gap: 0.3rem;
+}
+
+.form .form__elem-input {
   font-size: 1rem;
 }
 
 .form__elem-name {
   text-align: center;
+  font-weight: bold;
 }

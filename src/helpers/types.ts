@@ -15,9 +15,9 @@ export type FormInput = {
   lastName: string;
   email: string;
   birthday: string;
-  select: string;
+  country: string;
   checkbox: string[];
   personalData: string;
   radio: string;
-  image: string;
+  image?: FileList;
 };

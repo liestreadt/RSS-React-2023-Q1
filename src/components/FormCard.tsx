@@ -21,6 +21,7 @@ export function FormCard(props: { formData: FormInput }): JSX.Element {
 
   useEffect(() => {
     setImageAsDataUrl();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

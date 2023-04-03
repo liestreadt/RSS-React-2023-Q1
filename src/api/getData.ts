@@ -9,7 +9,6 @@ export async function getData(): Promise<Article[]> {
       }
     );
     const result = await response.json();
-    console.log(result);
     return result.articles;
   } catch (e) {
     console.warn(e);

@@ -1,0 +1,20 @@
+.form,
+.form__elem,
+.form__checkbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  gap: 0.3rem;
+}
+
+.form .form__elem-input {
+  font-size: 1rem;
+}
+
+.form__elem-name {
+  text-align: center;
+  font-weight: bold;
+}

@@ -21,3 +21,10 @@ export type FormInput = {
   radio: string;
   image?: FileList;
 };
+
+export enum LocationNames {
+  Main = 'Main',
+  About = 'About',
+  Forms = 'Forms',
+  NotFound = 'Page not found',
+}

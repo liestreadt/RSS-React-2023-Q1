@@ -2,7 +2,9 @@ import React, { useEffect, useRef } from 'react';
 
 import '../styles/Search.css';
 
-export function Search(): JSX.Element {
+export function Search(props: {
+  onSearchSubmit: React.KeyboardEventHandler<HTMLInputElement>;
+}): JSX.Element {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -17,7 +19,13 @@ export function Search(): JSX.Element {
   return (
     <div className="search">
       <button className="search__button">Search: </button>
-      <input ref={inputRef} id="searchInput" className="search__input" placeholder="🔍︎" />
+      <input
+        ref={inputRef}
+        onKeyDown={props.onSearchSubmit}
+        id="searchInput"
+        className="search__input"
+        placeholder="🔍︎"
+      />
     </div>
   );
 }

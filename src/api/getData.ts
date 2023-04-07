@@ -1,15 +1,12 @@
-import { Article } from '../helpers/types';
+import { Character } from '../helpers/types';
 
-export async function getData(): Promise<Article[]> {
+export async function getData(searchInput: string): Promise<Character[]> {
   try {
-    const response = await fetch(
-      'https://gnews.io/api/v4/search?q=example&lang=en&country=us&max=10&apikey=fb6ef00c29fbdfbd5cb3daf99a130b74',
-      {
-        method: 'GET',
-      }
-    );
+    const response = await fetch(`https://rickandmortyapi.com/api/character?name=${searchInput}`, {
+      method: 'GET',
+    });
     const result = await response.json();
-    return result.articles;
+    return result.results;
   } catch (e) {
     console.warn(e);
     return [];

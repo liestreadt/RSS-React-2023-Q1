@@ -11,9 +11,6 @@ export function Search(props: {
     const input = inputRef.current;
     const inputValueInLocalStorage = localStorage.getItem('inputValue');
     if (input && inputValueInLocalStorage) input.value = inputValueInLocalStorage;
-    return () => {
-      if (input) localStorage.setItem('inputValue', input.value);
-    };
   }, []);
 
   return (

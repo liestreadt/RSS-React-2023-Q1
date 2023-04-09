@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { Dispatch } from 'react';
 import '../styles/Card.css';
 
 import { Character } from '../helpers/types';
+import { getCurrentCharacter } from '../api/getData';
 
-export function Card(props: { article: Character }): JSX.Element {
+export function Card(props: {
+  article: Character;
+  setActive: Dispatch<React.SetStateAction<boolean>>;
+  setCurrentCharacter: Dispatch<React.SetStateAction<Character | null>>;
+}): JSX.Element {
   function handleCardClick(): void {
-    console.log(props.article.name);
+    props.setActive(true);
+    getCurrentCharacter(props.article.id).then((data) => props.setCurrentCharacter(data));
   }
 
   return (

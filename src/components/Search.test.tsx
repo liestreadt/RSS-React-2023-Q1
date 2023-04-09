@@ -6,7 +6,7 @@ import { Search } from './Search';
 
 describe('Search', () => {
   it('Renders search', () => {
-    render(<Search />);
+    render(<Search onSearchSubmit={() => console.log('submit')} />);
     expect(screen.getByRole('button')).toHaveTextContent('Search:');
   });
 });

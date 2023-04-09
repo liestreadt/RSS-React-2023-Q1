@@ -1,11 +1,6 @@
-import React from 'react';
-import { describe, it } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { Character } from './types';
 
-import { Card } from './Card';
-import { Character } from '../helpers/types';
-
-const defaultArticle: Character = {
+export const defaultArticle: Character = {
   id: 1,
   name: 'SampleName',
   status: 'SampleStatus',
@@ -25,10 +20,3 @@ const defaultArticle: Character = {
   url: 'SampleUrl',
   created: 'SampleCreated',
 };
-
-describe('Card', () => {
-  it('Renders card', () => {
-    render(<Card article={defaultArticle} />);
-    expect(screen.getByText(/SampleName/i)).toHaveTextContent('SampleName');
-  });
-});

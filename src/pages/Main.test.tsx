@@ -11,6 +11,6 @@ describe('Main', () => {
       screen.getByRole('heading', {
         level: 1,
       })
-    ).toHaveTextContent('Wall Street Journal News');
+    ).toHaveTextContent('Rick and Morty API');
   });
 });

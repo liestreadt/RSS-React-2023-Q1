@@ -41,7 +41,7 @@ export function Main(): JSX.Element {
         setActive={setIsModalActive}
       />
       <h1 className="h1">Rick and Morty API</h1>
-      <Search onSearchSubmit={handleSearchSubmitOnKey} />
+      <Search setSearchInput={setSearchInput} onSearchSubmit={handleSearchSubmitOnKey} />
       <div className="main">
         {isFetching ? (
           <Progressing />

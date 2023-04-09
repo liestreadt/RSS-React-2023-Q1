@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { Dispatch, useEffect, useRef } from 'react';
 
 import '../styles/Search.css';
 
 export function Search(props: {
   onSearchSubmit: React.KeyboardEventHandler<HTMLInputElement>;
+  setSearchInput: Dispatch<React.SetStateAction<string>>;
 }): JSX.Element {
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -15,7 +16,14 @@ export function Search(props: {
 
   return (
     <div className="search">
-      <button className="search__button">Search: </button>
+      <button
+        onClick={() => {
+          if (inputRef.current) props.setSearchInput(inputRef.current.value);
+        }}
+        className="search__button"
+      >
+        Search:{' '}
+      </button>
       <input
         ref={inputRef}
         onKeyDown={props.onSearchSubmit}

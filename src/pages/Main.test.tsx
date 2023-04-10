@@ -1,6 +1,9 @@
 import React from 'react';
-import { describe, it } from 'vitest';
+import { vi, describe, it } from 'vitest';
+import createFetchMock from 'vitest-fetch-mock';
 import { render, screen } from '@testing-library/react';
+
+const fetchMocker = createFetchMock(vi);
 
 import { Main } from './Main';
 

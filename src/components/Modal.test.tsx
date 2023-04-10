@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { vi, describe, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
 import { Modal } from './Modal';
 import { defaultArticle } from '../helpers/constants';
+import { Character } from 'helpers/types';
 
 describe('Card', () => {
-  it('Renders card', () => {
+  it('Renders modal', () => {
     render(
       <Modal
         setActive={vi.fn()}

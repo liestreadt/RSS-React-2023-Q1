@@ -9,6 +9,6 @@ describe('Search', () => {
     localStorage.setItem('inputValue', 'asd');
     render(<Search onSearchSubmit={vi.fn()} setSearchInput={vi.fn()} />);
     expect(screen.getByRole('button')).toHaveTextContent('Search:');
-    expect(screen.getByRole('input')).toHaveTextContent('asd');
+    expect(screen.getByTestId('searchInputTestId')).toHaveValue('asd');
   });
 });

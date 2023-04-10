@@ -21,6 +21,7 @@ export function Main(): JSX.Element {
     getData(searchInput).then((data) => {
       setArticles(data);
       setIsFetching(false);
+      console.log(data);
     });
   }, [searchInput]);
 

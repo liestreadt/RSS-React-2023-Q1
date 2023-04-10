@@ -14,13 +14,12 @@ export function Modal(props: {
   function closeModal() {
     props.setActive(false);
     props.setCurrentCharacter(null);
-    console.log('click');
   }
 
   return (
     <>
       {props.active && (
-        <div className="modal" onClick={closeModal}>
+        <div data-testid="modalTestId" className="modal" onClick={closeModal}>
           <div
             ref={modalContentContainer}
             className="modal__content"

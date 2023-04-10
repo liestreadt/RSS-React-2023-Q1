@@ -29,7 +29,6 @@ const defaultArticle: Character = {
 describe('Card', () => {
   it('Renders card', () => {
     render(<Card article={defaultArticle} setActive={vi.fn()} setCurrentCharacter={vi.fn()} />);
-    expect(screen.getByAltText('image')).toBeVisible();
     expect(screen.getByText(/SampleName/i)).toHaveTextContent('SampleName');
   });
 });

@@ -18,7 +18,11 @@ export function Search(props: {
     <div className="search">
       <button
         onClick={() => {
-          if (inputRef.current) props.setSearchInput(inputRef.current.value);
+          const input = inputRef.current;
+          if (input) {
+            props.setSearchInput(input.value);
+            localStorage.setItem('inputValue', input.value);
+          }
         }}
         className="search__button"
       >
@@ -27,6 +31,7 @@ export function Search(props: {
       <input
         ref={inputRef}
         onKeyDown={props.onSearchSubmit}
+        data-testid="searchInputTestId"
         id="searchInput"
         className="search__input"
         placeholder="🔍︎"

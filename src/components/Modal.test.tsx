@@ -1,5 +1,5 @@
 import React from 'react';
-import { describe, it } from 'vitest';
+import { vi, describe, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
 import { Modal } from './Modal';
@@ -9,9 +9,9 @@ describe('Card', () => {
   it('Renders card', () => {
     render(
       <Modal
-        setActive={false}
-        active={false}
-        setCurrentCharacter={}
+        setActive={vi.fn()}
+        active={true}
+        setCurrentCharacter={vi.fn()}
         characterInfo={defaultArticle}
       />
     );

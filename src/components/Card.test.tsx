@@ -1,5 +1,5 @@
 import React from 'react';
-import { describe, it } from 'vitest';
+import { vi, describe, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
 import { Card } from './Card';
@@ -28,7 +28,7 @@ const defaultArticle: Character = {
 
 describe('Card', () => {
   it('Renders card', () => {
-    render(<Card article={defaultArticle} />);
+    render(<Card article={defaultArticle} setActive={vi.fn()} setCurrentCharacter={vi.fn()} />);
     expect(screen.getByText(/SampleName/i)).toHaveTextContent('SampleName');
   });
 });

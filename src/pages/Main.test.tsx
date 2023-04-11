@@ -1,6 +1,11 @@
 import React from 'react';
-import { describe, it } from 'vitest';
+import { vi, describe, it } from 'vitest';
+import createFetchMock from 'vitest-fetch-mock';
 import { render, screen } from '@testing-library/react';
+
+const fetchMocker = createFetchMock(vi);
+
+fetchMocker.enableMocks();
 
 import { Main } from './Main';
 
@@ -11,6 +16,6 @@ describe('Main', () => {
       screen.getByRole('heading', {
         level: 1,
       })
-    ).toHaveTextContent('Wall Street Journal News');
+    ).toHaveTextContent('Rick and Morty API');
   });
 });

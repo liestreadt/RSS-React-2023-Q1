@@ -6,7 +6,7 @@ import { getCurrentCharacter, getData } from './getData';
 const fetchMocker = createFetchMock(vi);
 
 test('should return array of characters', async () => {
-  const result = await getData('rick');
+  const result = await getData('aa');
   expect(result).toBeTypeOf('object');
 });
 

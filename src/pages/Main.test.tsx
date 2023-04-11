@@ -5,6 +5,8 @@ import { render, screen } from '@testing-library/react';
 
 const fetchMocker = createFetchMock(vi);
 
+fetchMocker.enableMocks();
+
 import { Main } from './Main';
 
 describe('Main', () => {

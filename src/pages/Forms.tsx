@@ -28,7 +28,6 @@ export function Forms(): JSX.Element {
   } = methods;
 
   function onFormSubmit(data: FormInput): void {
-    // setInputData(structuredClone([...inputData, data]));
     dispatch(addSubmittedForm(structuredClone([...submittedFormsInStore, data])));
     setSubmitMessageVisibility(true);
 

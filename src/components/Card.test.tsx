@@ -1,7 +1,9 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { vi, describe, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
+import store from '../redux/store';
 import { Card } from './Card';
 import { Character } from '../helpers/types';
 
@@ -28,7 +30,11 @@ const defaultArticle: Character = {
 
 describe('Card', () => {
   it('Renders card', () => {
-    render(<Card article={defaultArticle} setActive={vi.fn()} setCurrentCharacter={vi.fn()} />);
+    render(
+      <Provider store={store}>
+        <Card article={defaultArticle} setActive={vi.fn()} setCurrentCharacter={vi.fn()} />
+      </Provider>
+    );
     expect(screen.getByAltText('image')).toBeVisible();
     expect(screen.getByText(/SampleName/i)).toHaveTextContent('SampleName');
   });

@@ -19,6 +19,16 @@ export type Character = {
   created: string;
 };
 
+export type ResponseOnNameFilter = {
+  info: {
+    count: number;
+    pages: number;
+    next: string;
+    prev: null;
+  };
+  results: Character[];
+};
+
 export type Article = {
   description: string;
   content: string;

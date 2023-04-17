@@ -16,6 +16,7 @@ export default defineConfig({
       provider: 'istanbul',
       reporter: ['text'],
       all: true,
+      exclude: ['src/main.tsx'],
     },
   },
 });

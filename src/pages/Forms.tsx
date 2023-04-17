@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import { addSubmittedForm } from '../redux/reduxSlices/formsSlice';
 import '../styles/Forms.css';
 
 import { FormInput } from '../helpers/types';
@@ -9,8 +11,10 @@ import { CheckboxInput } from '../components/CheckboxInput';
 import { Input } from '../components/Input';
 
 export function Forms(): JSX.Element {
-  const [inputData, setInputData] = useState<FormInput[]>([]);
   const [submitMessageVisibility, setSubmitMessageVisibility] = useState<boolean>(false);
+
+  const submittedFormsInStore = useAppSelector((state) => state.forms.submittedForms);
+  const dispatch = useAppDispatch();
 
   const methods = useForm<FormInput>({
     mode: 'onSubmit',
@@ -24,7 +28,7 @@ export function Forms(): JSX.Element {
   } = methods;
 
   function onFormSubmit(data: FormInput): void {
-    setInputData(structuredClone([...inputData, data]));
+    dispatch(addSubmittedForm(structuredClone([...submittedFormsInStore, data])));
     setSubmitMessageVisibility(true);
 
     setTimeout(() => {
@@ -191,7 +195,7 @@ export function Forms(): JSX.Element {
             </form>
           </FormProvider>
           <div className="main">
-            {inputData.map((item, index) => (
+            {submittedFormsInStore.map((item, index) => (
               <FormCard key={index} formData={item} />
             ))}
           </div>

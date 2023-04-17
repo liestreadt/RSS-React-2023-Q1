@@ -65,7 +65,7 @@ export function FormCard(props: { formData: FormInput }): JSX.Element {
             style={{
               display: 'block',
               margin: 'auto',
-              maxHeight: '100%',
+              maxHeight: '95%',
               maxWidth: '100%',
               borderRadius: '1rem',
             }}

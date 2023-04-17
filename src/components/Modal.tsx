@@ -23,6 +23,7 @@ export function Modal(props: {
           <div
             ref={modalContentContainer}
             className="modal__content"
+            data-testid="modalContentTestId"
             onClick={(e) => e.stopPropagation()}
           >
             {(props.characterInfo && (

@@ -1,17 +1,19 @@
 import React, { Dispatch } from 'react';
+import { useGetSpecificCharacterQuery } from '../redux/reduxAPI';
 import '../styles/Card.css';
 
 import { Character } from '../helpers/types';
-import { getCurrentCharacter } from '../api/getData';
 
 export function Card(props: {
   article: Character;
   setActive: Dispatch<React.SetStateAction<boolean>>;
   setCurrentCharacter: Dispatch<React.SetStateAction<Character | null>>;
 }): JSX.Element {
+  const { data } = useGetSpecificCharacterQuery(props.article.id);
+
   function handleCardClick(): void {
     props.setActive(true);
-    getCurrentCharacter(props.article.id).then((data) => props.setCurrentCharacter(data));
+    if (data) props.setCurrentCharacter(data);
   }
 
   return (

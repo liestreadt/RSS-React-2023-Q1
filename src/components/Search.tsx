@@ -28,7 +28,7 @@ export function Search(props: {
         }}
         className="search__button"
       >
-        Search:{' '}
+        Search:
       </button>
       <input
         ref={inputRef}
